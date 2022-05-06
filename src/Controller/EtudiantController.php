@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Etudiant;
+use App\Form\EtudiantType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -24,7 +25,7 @@ class EtudiantController extends AbstractController
     }
 
     #[
-        Route('/{page?1}/{nbre?12}', name: 'etudiant.list')
+        Route('/{page<\d+>?1}/{nbre<\d+>?12}', name: 'etudiant.list')
     ]
     public function indexAlls(ManagerRegistry $doctrine, $page, $nbre): Response {
         $repository = $doctrine->getRepository(Etudiant::class);

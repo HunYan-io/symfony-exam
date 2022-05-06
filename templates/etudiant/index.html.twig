@@ -7,6 +7,7 @@
 	<div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
 		<div class="dataTable-container">
 			<table id="datatablesSimple" class="dataTable-table">
+            <a href="{{path("etudiant.edit")}}">Ajouter une personne</a>
 				<thead>
 					<tr>
 						<th data-sortable="" style="width: 19.5414%;">
@@ -29,7 +30,7 @@
                     <tr class="{{ loop.index is even ? "bg-white" : "bg-secondary" }}">
 						<td>{{etudiant.nom}}</td>
 						<td>{{etudiant.prenom}}</td>
-						<td>{{etudiant.section is defined ? etudiant.section.designation : "Non encore affecté"}}</td>
+						<td>{{etudiant.section is same as null ?  "Non encore affecté" : etudiant.section.designation}}</td>
 						<td>
                             <a href="{{path("etudiant.edit", {id: etudiant.id })}}">Edit</a>
                             |
